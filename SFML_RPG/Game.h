@@ -1,7 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "State.h"
+#include "States/GameState.h"
 
 class Game
 {
@@ -12,8 +12,11 @@ private:
 	sf::Clock _dtClock;
 	float _dt;
 
+	std::stack<State*> _states;
+
 private:
 	void initWindow();
+	void initStates();
 
 public:
 	Game();
