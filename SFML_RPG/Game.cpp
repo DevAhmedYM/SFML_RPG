@@ -2,7 +2,26 @@
 
 void Game::initWindow()
 {
-	_renderWindow = new sf::RenderWindow(sf::VideoMode(800, 600), "C++ SFML RPG");
+	std::ifstream ifs("Config/window.ini");
+
+	std::string title = "None";
+	sf::VideoMode windowBounds(800, 600);
+	unsigned frameRateLimit = 120;
+	bool verticalSyncEnabled = false;
+
+	if (ifs.is_open())
+	{
+		std::getline(ifs, title);
+		ifs >> windowBounds.width >> windowBounds.height;
+		ifs >> frameRateLimit;
+		ifs >> verticalSyncEnabled;
+	}
+
+	ifs.close();
+
+	_renderWindow = new sf::RenderWindow(windowBounds, title);
+	_renderWindow->setFramerateLimit(frameRateLimit);
+	_renderWindow->setVerticalSyncEnabled(verticalSyncEnabled);
 }
 
 Game::Game()
