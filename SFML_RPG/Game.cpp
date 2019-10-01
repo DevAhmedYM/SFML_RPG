@@ -41,10 +41,14 @@ Game::~Game()
 
 	while (!_states.empty())
 	{
-		auto& state = _states.top();
-		delete state;
+		delete _states.top();
 		_states.pop();
 	}
+}
+
+void Game::endApplication()
+{
+	std::cout << "Ending application.\n";
 }
 
 void Game::updateDt()
@@ -68,6 +72,16 @@ void Game::update()
 	if (!_states.empty())
 	{
 		_states.top()->update(_dt);
+		if (_states.top()->getQuit()) 
+		{
+			_states.top()->endState();
+			delete _states.top();
+			_states.pop();
+		}
+	}
+	else {
+		endApplication();
+		_renderWindow->close();
 	}
 }
 

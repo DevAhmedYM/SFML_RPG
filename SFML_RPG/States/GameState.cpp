@@ -9,15 +9,21 @@ GameState::~GameState()
 {
 }
 
-void GameState::endState()
+void GameState::updateKeybinds(const float& dt)
 {
+	checkForQuit();
 }
 
 void GameState::update(const float& dt)
 {
-	std::cout << "Hello from GameState\n";
+	updateKeybinds(dt);
 }
 
 void GameState::render(sf::RenderTarget* renderTarget)
 {
+}
+
+void GameState::endState()
+{
+	std::cout << "Ending State\n";
 }

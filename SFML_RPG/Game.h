@@ -23,6 +23,7 @@ public:
 	virtual ~Game();
 
 public:
+	void endApplication();
 	void updateDt();
 	void updateSFMLEvents();
 	void update();

@@ -10,9 +10,10 @@ public:
 	virtual ~GameState();
 
 public:
-	virtual void endState() override;
+	virtual void updateKeybinds(const float& dt) override;
 	virtual void update(const float& dt) override;
-	virtual void render(sf::RenderTarget* renderTarget = nullptr) override;
+	virtual void render(sf::RenderTarget* renderTarget = nullptr) override;	
+	virtual void endState() override;
 };
 
 #endif
