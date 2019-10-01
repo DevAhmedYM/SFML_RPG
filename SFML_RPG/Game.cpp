@@ -27,13 +27,23 @@ void Game::initWindow()
 
 void Game::initStates()
 {
-	_states.push(new GameState(_renderWindow));
+	_states.push(new GameState(_renderWindow, &_supportedKeys));
+}
+
+void Game::initKeys()
+{
+	_supportedKeys.emplace("Escape", sf::Keyboard::Key::Escape);
+	_supportedKeys.emplace("A", sf::Keyboard::Key::A);
+	_supportedKeys.emplace("D", sf::Keyboard::Key::D);
+	_supportedKeys.emplace("W", sf::Keyboard::Key::W);
+	_supportedKeys.emplace("S", sf::Keyboard::Key::S);
 }
 
 Game::Game()
 {
 	initWindow();
-	initStates();
+	initKeys();
+	initStates();	
 }
 
 Game::~Game()

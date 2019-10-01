@@ -1,8 +1,9 @@
 #include "pch.h"
 #include "State.h"
 
-State::State(sf::RenderWindow* renderWindow)
+State::State(sf::RenderWindow* renderWindow, std::map<std::string, int>* supportedKeys)
 	: _renderWindow(renderWindow)
+	, _supportedKeys(supportedKeys)
 	, _quit(false)
 {
 }

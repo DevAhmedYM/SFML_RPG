@@ -13,10 +13,12 @@ private:
 	float _dt;
 
 	std::stack<State*> _states;
+	std::map<std::string, int> _supportedKeys;
 
 private:
 	void initWindow();
 	void initStates();
+	void initKeys();
 
 public:
 	Game();
