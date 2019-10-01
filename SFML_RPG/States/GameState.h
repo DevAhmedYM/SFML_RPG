@@ -2,9 +2,13 @@
 #define GAMESTATE_H
 
 #include "State.h"
+#include "./Entities/Entity.h"
 
 class GameState : public State
 {
+private:
+	Entity _player;
+
 public:
 	GameState(sf::RenderWindow* renderWindow);
 	virtual ~GameState();

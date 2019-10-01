@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "GameState.h"
 
 GameState::GameState(sf::RenderWindow* renderWindow)
@@ -17,10 +18,12 @@ void GameState::updateKeybinds(const float& dt)
 void GameState::update(const float& dt)
 {
 	updateKeybinds(dt);
+	_player.update(dt);
 }
 
 void GameState::render(sf::RenderTarget* renderTarget)
 {
+	_player.render(renderTarget == nullptr ? _renderWindow : renderTarget);
 }
 
 void GameState::endState()
